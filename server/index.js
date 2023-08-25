@@ -19,7 +19,7 @@ mongoose.connect(process.env.DB_URI, {
     useUnifiedTopology: true,
 }).then(() => {
 
-    console.log('Connexion à MongoDB réussie !');
+    console.log('Connexion à la BDD Coding In Shape - exercises !');
 
 }).catch((error) => { 
 

@@ -44,9 +44,11 @@ const exerciseController = {
         try {
             const exercises = await Exercise.find();
             res.json(exercises);
+
         } catch (error) {
             console.log(error);
-            res.status(500).json({ msg: "Erreur serveur" });
+            res.status(400).json({ msg: "Erreur client", error });
+            res.status(500).json({ msg: "Erreur serveur", error });
         }
     },
 
@@ -54,6 +56,7 @@ const exerciseController = {
     getExerciseById: async (req, res) => {
         try {
             const exercise = await Exercise.findById(req.params.id);
+
             if (!exercise) {
                 return res.status(404).json({ msg: "Cet exercice n'existe pas" });
             }
@@ -86,8 +89,8 @@ const exerciseController = {
                     type,
                     muscle,
                 },
-                
-                {new: true}
+
+                { new: true }
             );
 
             res.json({ msg: "Exercice modifié" });
@@ -109,38 +112,49 @@ const exerciseController = {
         }
     },
 
-    // 06. Afficher les exercices par type (zone musculaire):
+    // 06. Afficher les exercices par type :
     getExercisesByType: async (req, res) => {
         try {
-            const exercises = await Exercise.find({ type: req.params.type })
+            const type = req.params.type;
+
+            const exercises = await Exercise.find({ type: { $regex: type, $options: "i" } });
+            console.log(exercises);
+
+            if (exercises.length === 0) {
+                console.log(exercises);
+                return res.status(404).json({ msg: "Aucun exercice trouvé pour ce type" });
+            }
+
             res.json(exercises);
+            console.log(exercises);
+
         } catch (error) {
             console.log(error);
             res.status(500).json({ msg: "Erreur serveur" });
         }
     },
 
+
     // 07. Fonction randomRoutine, renvoie un tableau de 5 exercices aléatoires de ce type :
-    randomRoutine: async (req, res) => {
+    getRandomRoutine: async (req, res) => {
         try {
             const muscles = ["cervicaux", "deltoïdes", "lombaires", "hanches", "jambes"];
             // 07.a j'initialise un tableau vide qui va contenir les exercices aléatoires
             const selectedExercises = [];
 
             // 07.b je boucle sur le tableau muscles pour récupérer les exercices par type :
-
             for (let i = 0; i < muscles.length; i++) {
 
                 // 07.c je récupère les exercices par type :
                 const exercises = await Exercise.find({ type: muscles[i] });
 
                 // 07.d je vérifie si des exos existent pour ce type : 
-                if (exercises.length > 0) { 
+                if (exercises.length > 0) {
 
-                    
+
                     // 07.e je récupère un exercice aléatoire dans le tableau :
                     const randomExercises = exercises[Math.floor(Math.random() * exercises.length)];
-                    
+
                     // 07.f je push l'exercice dans le tableau :
                     selectedExercises.push(randomExercises);
                 }
