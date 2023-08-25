@@ -20,7 +20,7 @@ router.delete('/exercises/:id', exerciceController.deleteExercise);
 router.get('/exercises/type/:type', exerciceController.getExercisesByType);
 
 // 07. Afficher un exercice par son muscle : 
-// router.get('/exercises/muscle/:muscle', exerciceController.getExercisesByMuscle);
+router.get('/exercises/muscle/:muscle', exerciceController.getExercisesByMuscle);
 
 // 08.RandomRoutine : 
 router.get('/random', exerciceController.getRandomRoutine);

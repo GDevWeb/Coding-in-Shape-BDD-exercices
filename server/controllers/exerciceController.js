@@ -134,8 +134,29 @@ const exerciseController = {
         }
     },
 
+    // 07. Afficher les exercices par muscle : 
+    getExercisesByMuscle: async (req, res) => {
+        try {
+            const muscle = req.params.muscle;
 
-    // 07. Fonction randomRoutine, renvoie un tableau de 5 exercices aléatoires de ce type :
+            const exercises = await Exercise.find({ muscle: { $regex: muscle, $options: "i" } });
+            console.log(exercises);
+
+            if (exercises.length === 0) {
+                console.log(exercises);
+                return res.status(404).json({ msg: "Aucun exercice trouvé pour ce muscle" });
+            }
+
+            res.json(exercises);
+            console.log(exercises);
+        }catch (error) {
+            console.log(error);
+            res.status(500).json({ msg: "Erreur serveur" });
+        }
+    },
+
+
+    // 08. Fonction randomRoutine, renvoie un tableau de 5 exercices aléatoires de ce type :
     getRandomRoutine: async (req, res) => {
         try {
             const muscles = ["cervicaux", "deltoïdes", "lombaires", "hanches", "jambes"];
