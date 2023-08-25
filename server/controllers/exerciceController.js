@@ -189,7 +189,7 @@ const exerciseController = {
 
         } catch (error) {
             console.log(error);
-            res.status(500).json({ msg: "Erreur serveur" });
+            res.status(500).json({ msg: "Erreur serveur getRandomRoutine"});
         }
     },
 };

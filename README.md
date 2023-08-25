@@ -1,55 +1,78 @@
----
+```markdown
+# Guide d'Installation et d'Utilisation de l'Application Backend
 
-# Guide d'Installation et d'Utilisation du Serveur MERN
-
-Ce guide vous expliquera comment installer et lancer le serveur MERN (MongoDB, Express, React, Node.js) pour le projet "Coding in Shape - DB - exercices".
+Ce guide vous aidera à installer, configurer et utiliser l'application backend pour le projet "Coding in Shape".
 
 ## Étapes d'Installation
 
-1. **Installer Node.js et npm**
+### 1. Cloner le Répertoire
 
-   Assurez-vous d'avoir Node.js et npm (Node Package Manager) installés sur votre ordinateur. Vous pouvez les télécharger et les installer depuis [le site officiel de Node.js](https://nodejs.org/).
+Clonez le répertoire GitHub du projet sur votre ordinateur.
 
-2. **Télécharger le Code**
+```bash
+git clone https://github.com/votre-utilisateur/coding-in-shape-backend.git
+```
 
-   Téléchargez ou clonez le code source du projet à partir du repository GitHub.
+### 2. Installer les Dépendances
 
-3. **Installer les Dépendances**
+Accédez au répertoire du projet et installez les dépendances en exécutant la commande suivante :
 
-   Naviguez dans le dossier du projet à l'aide de la ligne de commande (Terminal, Command Prompt) et exécutez la commande suivante pour installer les dépendances :
+```bash
+cd coding-in-shape-backend
+npm install
+```
 
-   ```
-   npm install
-   ```
+### 3. Configuration de la Base de Données
 
-## Lancer le Serveur
+Dans le fichier `.env`, configurez les variables d'environnement suivantes :
 
-1. **Démarrer le Serveur**
+```dotenv
+PORT=3000
+DB_URI=mongodb://localhost:27017/my-exercises-db
+```
 
-   Dans le même dossier, exécutez la commande suivante pour démarrer le serveur :
+Assurez-vous que MongoDB est installé et en cours d'exécution sur votre machine.
 
-   ```
-   npm start
-   ```
+### 4. Démarrer le Serveur
 
-   Si vous avez installé `nodemon`, vous pouvez également utiliser la commande suivante pour un redémarrage automatique du serveur lors de la modification des fichiers :
+Lancez le serveur en exécutant la commande suivante :
 
-   ```
-   npm run dev
-   ```
+```bash
+npm start
+```
 
-2. **Tester le Serveur**
+Le serveur sera disponible à l'adresse http://localhost:3000.
 
-   Vous pouvez utiliser Postman pour tester les différentes fonctionnalités du serveur. Suivez les points suivants pour tester les routes :
+## Utilisation de l'API
 
-   - **Ajouter un exercice** : Envoyez une requête POST à `http://localhost:3000/api/create` avec les détails de l'exercice dans le corps JSON.
-   - **Afficher tous les exercices** : Envoyez une requête GET à `http://localhost:3000/api/exercises`.
-   - **Afficher un exercice par son ID** : Envoyez une requête GET à `http://localhost:3000/api/exercises/:id` en remplaçant `:id` par l'ID de l'exercice.
-   - **Modifier un exercice** : Envoyez une requête PUT à `http://localhost:3000/api/exercises/:id` en remplaçant `:id` par l'ID de l'exercice, avec les détails mis à jour dans le corps JSON.
-   - **Supprimer un exercice** : Envoyez une requête DELETE à `http://localhost:3000/api/exercises/:id` en remplaçant `:id` par l'ID de l'exercice.
+L'application backend expose une API permettant de gérer les exercices.
 
-3. **Arrêter le Serveur**
+### Endpoints Disponibles
 
-   Pour arrêter le serveur, revenez à la ligne de commande et appuyez sur `Ctrl + C`.
+- `POST /api/exercises/create`: Créer un nouvel exercice.
+- `GET /api/exercises/exercises`: Obtenir la liste de tous les exercices.
+- `GET /api/exercises/exercises/:id`: Obtenir un exercice par son ID.
+- `PUT /api/exercises/exercises/:id`: Mettre à jour un exercice existant.
+- `DELETE /api/exercises/exercises/:id`: Supprimer un exercice.
+- `GET /api/exercises/exercises/type/:type`: Obtenir la liste d'exercices par type.
+- `GET /api/exercises/random`: Obtenir une routine d'exercices aléatoires.
 
----
+### Exemple d'Objet à Ajouter via Postman
+
+```json
+{
+    "name": "Exercice de Test",
+    "description": "Ceci est un exercice de test.",
+    "image": "url_de_l_image",
+    "video": "url_de_la_video",
+    "type": "Upper Body",
+    "muscle": "Chest"
+}
+```
+
+## Dépannage
+
+Si vous rencontrez des problèmes lors de l'installation ou de l'utilisation de l'application, n'hésitez pas à demander de l'aide à un collègue ou à votre responsable technique.
+
+Profitez de l'apprentissage et n'ayez pas peur de poser des questions !
+```
