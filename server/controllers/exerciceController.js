@@ -1,6 +1,6 @@
 const Exercise = require('../models/exerciseModel');
 
-const exerciceController = {
+const exerciseController = {
 
     // 01. Ajouter un exercice :
     createExercise: async (req, res) => {
@@ -85,7 +85,9 @@ const exerciceController = {
                     video,
                     type,
                     muscle,
-                }
+                },
+                
+                {new: true}
             );
 
             res.json({ msg: "Exercice modifié" });
@@ -126,22 +128,28 @@ const exerciceController = {
             const selectedExercises = [];
 
             // 07.b je boucle sur le tableau muscles pour récupérer les exercices par type :
+
             for (let i = 0; i < muscles.length; i++) {
 
                 // 07.c je récupère les exercices par type :
                 const exercises = await Exercise.find({ type: muscles[i] });
 
-                // 07.d je récupère un exercice aléatoire dans le tableau :
-                const randomExercises = exercises[Math.floor(Math.random() * exercises.length)];
+                // 07.d je vérifie si des exos existent pour ce type : 
+                if (exercises.length > 0) { 
 
-                // 07.e je push l'exercice dans le tableau :
-                selectedExercises.push(randomExercises);
+                    
+                    // 07.e je récupère un exercice aléatoire dans le tableau :
+                    const randomExercises = exercises[Math.floor(Math.random() * exercises.length)];
+                    
+                    // 07.f je push l'exercice dans le tableau :
+                    selectedExercises.push(randomExercises);
+                }
             }
 
-            // 07.f je mélange le tableau et je récupère les 5 premiers exercices :
+            // 07.g je mélange le tableau et je récupère les 5 premiers exercices :
             const shuffledExercises = selectedExercises.sort(() => Math.random() - 0.5).slice(0, 5);
 
-            // 07.g je renvoie le tableau de 5 exercices aléatoires :
+            // 07.h je renvoie le tableau de 5 exercices aléatoires :
             res.json(shuffledExercises);
 
         } catch (error) {
@@ -151,4 +159,4 @@ const exerciceController = {
     },
 };
 
-module.exports = exerciceController;
+module.exports = exerciseController;
