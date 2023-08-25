@@ -1,0 +1,33 @@
+{
+  "name": "coding-in-shape-db-exercices",
+  "version": "1.0.0",
+  "description": "BDD routine exercices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aescanor/Coding-in-Shape-BDD-exercices.git"
+  },
+  "keywords": [
+    "coding",
+    "in",
+    "shape",
+    "bdd",
+    "exercice",
+    "exercice",
+    "routine"
+  ],
+  "author": "Malik, Marine , Gaëtan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aescanor/Coding-in-Shape-BDD-exercices/issues"
+  },
+  "homepage": "https://github.com/Aescanor/Coding-in-Shape-BDD-exercices#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.4"
+  }
+}
