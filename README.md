@@ -1,3 +1,5 @@
+Voici le contenu du guide d'installation et d'utilisation mis à jour suite aux modifications apportées :
+
 ```markdown
 # Guide d'Installation et d'Utilisation de l'Application Backend
 
@@ -49,12 +51,12 @@ L'application backend expose une API permettant de gérer les exercices.
 
 ### Endpoints Disponibles
 
-- `POST /api/exercises/create`: Créer un nouvel exercice.
-- `GET /api/exercises/exercises`: Obtenir la liste de tous les exercices.
-- `GET /api/exercises/exercises/:id`: Obtenir un exercice par son ID.
-- `PUT /api/exercises/exercises/:id`: Mettre à jour un exercice existant.
-- `DELETE /api/exercises/exercises/:id`: Supprimer un exercice.
-- `GET /api/exercises/exercises/type/:type`: Obtenir la liste d'exercices par type.
+- `POST /api/exercises`: Créer un nouvel exercice.
+- `GET /api/exercises`: Obtenir la liste de tous les exercices.
+- `GET /api/exercises/:id`: Obtenir un exercice par son ID.
+- `PUT /api/exercises/:id`: Mettre à jour un exercice existant.
+- `DELETE /api/exercises/:id`: Supprimer un exercice.
+- `GET /api/exercises/type/:type`: Obtenir la liste d'exercices par type.
 - `GET /api/exercises/random`: Obtenir une routine d'exercices aléatoires.
 
 ### Exemple d'Objet à Ajouter via Postman
@@ -76,3 +78,4 @@ Si vous rencontrez des problèmes lors de l'installation ou de l'utilisation de 
 
 Profitez de l'apprentissage et n'ayez pas peur de poser des questions !
 ```
+N'hésitez pas à le personnaliser davantage selon vos besoins et préférences.
