@@ -1,28 +1,32 @@
 const express = require('express');
 const router = express.Router();
 const exerciceController = require('../controllers/exerciceController');
+const getExercisesByParam = require('../middleware/paramMiddleware');
 
 // Routes :
 // 01. Ajouter un exercice :
-router.post('/create', exerciceController.createExercise);
+router.post('/', exerciceController.createExercise);
 // 02. Afficher tous les exercices :
-router.get('/exercises', exerciceController.getAllExercises);
+router.get('/', exerciceController.getAllExercises);
 // 03. Afficher un exercice par son id :
-router.get('/exercises/:id', exerciceController.getExerciseById);
+router.get('/:id', exerciceController.getExerciseById);
 // 04. Modifier un exercice :
-router.put('/exercises/:id', exerciceController.updateExercise);
+router.put('/:id', exerciceController.updateExercise);
 // 05. Supprimer un exercice :
-router.delete('/exercises/:id', exerciceController.deleteExercise);
+router.delete('/:id', exerciceController.deleteExercise);
 
-// Extras CRUD : 
-//06. Afficher un exercice par son type :
-//http://localhost:3000/api/exercises/exercises/type/Core
-router.get('/exercises/type/:type', exerciceController.getExercisesByType);
+// 06. Afficher les exercices par type:
+// Utilisation du middleware pour les paramètres variables
+router.get('/type/:type', getExercisesByParam('type'), (req, res) => {
+  res.json(req.exercises);
+});
 
-// 07. Afficher un exercice par son muscle : 
-router.get('/exercises/muscle/:muscle', exerciceController.getExercisesByMuscle);
+// 07. Afficher les exercices par muscle: 
+router.get('/muscle/:muscle', getExercisesByParam('muscle'), (req, res) => {
+  res.json(req.exercises);
+});
 
-// 08.RandomRoutine : 
+// 08. Créer une table d'exercices aléatoires:
 router.get('/random', exerciceController.getRandomRoutine);
 
 module.exports = router;
