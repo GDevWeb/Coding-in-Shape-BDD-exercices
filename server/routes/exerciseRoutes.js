@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const exerciceController = require('../controllers/exerciceController');
 const getExercisesByParam = require('../middleware/paramMiddleware');
-const getRandomRoutine = require('../controllers/getRandomRoutine');
+const getRandomRoutine = require('../controllers/getRandomRoutineV2');
 
 // Routes :
 // 01. Ajouter un exercice :
