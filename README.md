@@ -78,4 +78,3 @@ Si vous rencontrez des problèmes lors de l'installation ou de l'utilisation de 
 
 Profitez de l'apprentissage et n'ayez pas peur de poser des questions !
 ```
-N'hésitez pas à le personnaliser davantage selon vos besoins et préférences.
