@@ -3,7 +3,7 @@ const Exercise = require('../models/exerciseModel');
 const getExercisesByParam = (paramName) => {
   return async (req, res, next) => {
     try {
-      const paramValue = req.params[paramName];
+      const paramValue = req.params[paramName].toLowerCase(); // Convertir en minuscules
       const exercises = await Exercise.find({ [paramName]: paramValue });
       
       if (exercises.length === 0) {
@@ -11,6 +11,7 @@ const getExercisesByParam = (paramName) => {
       }
 
       req.exercises = exercises; //  je stocke les exercices dans la requête
+      next(); //next() pour passer au middleware suivant
     } catch (error) {
       console.log(error);
       res.status(500).json({ msg: "Erreur serveur" });
