@@ -8,25 +8,24 @@ const getExercisesByParam = require('../middleware/paramMiddleware');
 router.post('/', exerciceController.createExercise);
 // 02. Afficher tous les exercices :
 router.get('/', exerciceController.getAllExercises);
-// 03. Afficher un exercice par son id :
+// 03. Créer une table d'exercices aléatoires:
+router.get('/random', exerciceController.getRandomRoutine);
+// 04. Afficher un exercice par son id :
 router.get('/:id', exerciceController.getExerciseById);
-// 04. Modifier un exercice :
+// 05. Modifier un exercice :
 router.put('/:id', exerciceController.updateExercise);
-// 05. Supprimer un exercice :
+// 06. Supprimer un exercice :
 router.delete('/:id', exerciceController.deleteExercise);
 
-// 06. Afficher les exercices par type:
+// 07. Afficher les exercices par type:
 // Utilisation du middleware pour les paramètres variables
 router.get('/type/:type', getExercisesByParam('type'), (req, res) => {
   res.json(req.exercises);
 });
-
-// 07. Afficher les exercices par muscle: 
+// 08. Afficher les exercices par muscle: 
 router.get('/muscle/:muscle', getExercisesByParam('muscle'), (req, res) => {
   res.json(req.exercises);
 });
 
-// 08. Créer une table d'exercices aléatoires:
-router.get('/random', exerciceController.getRandomRoutine);
 
 module.exports = router;

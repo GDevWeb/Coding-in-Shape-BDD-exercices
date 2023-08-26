@@ -28,7 +28,12 @@ mongoose.connect(process.env.DB_URI, {
 
 });
 
-// 03. Lancer le serveur :
+// 03. import de errorMiddleware :
+const errorMiddleware = require('./middleware/errorMiddleware');
+
+app.use(errorMiddleware);
+
+// 04. Lancer le serveur :
 app.listen(PORT, () => {
     console.log(`Le serveur est lancé sur le port ${PORT}`);
 })
