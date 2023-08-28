@@ -7,7 +7,7 @@ const authMiddleWare = (req, res, next) => {
         req.userId = decoded.userId;
         next();
     } catch (error) {
-        console.log(error, "Accès non autorisé");
+        console.log(error, "Accès non autorisé, retour à la page de connexion");
         res.status(401).json({ message: "Accès non autorisé" });
     }
 };
