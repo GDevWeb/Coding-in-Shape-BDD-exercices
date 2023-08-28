@@ -34,6 +34,7 @@ router.delete('/:id', authMiddleWare, exerciceController.deleteExercise)
 router.get('/type/:type', getExercisesByParam('type'), (req, res) => {
   res.json(req.exercises);
 });
+
 // 08. Afficher les exercices par muscle: 
 router.get('/muscle/:muscle', getExercisesByParam('muscle'), (req, res) => {
   res.json(req.exercises);
