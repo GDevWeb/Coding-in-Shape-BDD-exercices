@@ -26,6 +26,7 @@ router.put('/:id', authMiddleWare, exerciceController.updateExercise);
 // router.put('/:id', exerciceController.updateExercise);
 
 // 06. Supprimer un exercice :
+router.delete('/:id', authMiddleWare, exerciceController.deleteExercise)
 // router.delete('/:id', exerciceController.deleteExercise);
 
 // 07. Afficher les exercices par type:
