@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const exerciceController = require('../controllers/exerciseController');
+const authMiddleWare = require('../middleware/authMiddleWare');
 const getExercisesByParam = require('../middleware/paramMiddleware'); 
 
 // Routes :
 // 01. Ajouter un exercice :
 router.post('/', exerciceController.createExercise);
 // 02. Afficher tous les exercices :
-router.get('/', exerciceController.getAllExercises);
+router.get('/', authMiddleWare, exerciceController.getAllExercises);
+// router.get('/', exerciceController.getAllExercises);
 // 03. Créer une table d'exercices aléatoires:
 router.get('/random', exerciceController.getRandomRoutine);
 // 04. Afficher un exercice par son id :
