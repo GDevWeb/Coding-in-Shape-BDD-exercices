@@ -10,19 +10,22 @@ const getExercisesByParam = require('../middleware/paramMiddleware');
 // 01.b Ajouter un exercice protéger une route avec le middleware :
 router.post('/', authMiddleWare, exerciceController.createExercise);
 
-// 02.a Afficher tous les exercices :
-// router.get('/', exerciceController.getAllExercises);
-// 02.b Route protégée avec le middleware : 
+// 02.a Route getAllExercises protégée avec le middleware : 
 router.get('/', authMiddleWare, exerciceController.getAllExercises);
+// 02.b Afficher tous les exercices :
+// router.get('/', exerciceController.getAllExercises);
 
-// 03.a Créer une table d'exercices aléatoires:
+// 03.a Route random protégée avec le middleware - Créer une table d'exercices aléatoires:
 router.get('/random', authMiddleWare, exerciceController.getRandomRoutine);
 // 03.b Créer une table d'exercices aléatoires:
 // router.get('/random', exerciceController.getRandomRoutine);
 
-// 04. Afficher un exercice par son id :
-router.get('/:id', exerciceController.getExerciseById);
-// 05. Modifier un exercice :
+// 04.a Afficher un exercice par son id :
+router.get('/:id', authMiddleWare, exerciceController.getExerciseById)
+// 04.b Afficher un exercice par son id :
+// router.get('/:id', exerciceController.getExerciseById);
+
+// 05.a Modifier un exercice :
 router.put('/:id', exerciceController.updateExercise);
 // 06. Supprimer un exercice :
 router.delete('/:id', exerciceController.deleteExercise);
