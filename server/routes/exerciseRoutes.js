@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const exerciceController = require('../controllers/exerciceController');
-const getExercisesByParam = require('../middleware/paramMiddleware');
+const exerciceController = require('../controllers/exerciseController');
+const getExercisesByParam = require('../middleware/paramMiddleware'); 
 
 // Routes :
 // 01. Ajouter un exercice :
@@ -26,6 +26,5 @@ router.get('/type/:type', getExercisesByParam('type'), (req, res) => {
 router.get('/muscle/:muscle', getExercisesByParam('muscle'), (req, res) => {
   res.json(req.exercises);
 });
-
 
 module.exports = router;

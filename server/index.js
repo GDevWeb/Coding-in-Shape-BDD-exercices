@@ -1,9 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+
 require('dotenv').config();
 
 // 01. Créer une application Express :
 const app = express();
+
+
 const PORT = process.env.PORT || 3000;
 
 // Middlewares :
