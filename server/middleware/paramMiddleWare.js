@@ -4,8 +4,8 @@ const getExercisesByParam = (paramName) => {
   return async (req, res, next) => {
     try {
       const paramValue = req.params[paramName].toLowerCase(); // Convertir en minuscules
-      const exercises = await Exercise.find({ [paramName]: paramValue });
-      
+      const exercises = await Exercise.find({ [paramName]: {$regex: paramValue, $options: "i"} });
+      console.log("Exercice trouvé ", exercises);
       if (exercises.length === 0) {
         return res.status(404).json({ msg: `Aucun exercice trouvé pour ${paramName} ${paramValue}` });
       }
