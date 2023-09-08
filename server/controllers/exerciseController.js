@@ -140,7 +140,6 @@ const exerciseController = {
             const muscle = req.params.muscle;
 
             const exercises = await Exercise.find({ muscle: { $regex: muscle, $options: "i" } });
-            console.log(exercises);
 
             if (exercises.length === 0) {
                 console.log(exercises);
@@ -148,7 +147,7 @@ const exerciseController = {
             }
 
             res.json(exercises);
-            console.log(exercises);
+
         }catch (error) {
             console.log(error);
             res.status(500).json({ msg: "Erreur serveur" });
@@ -159,7 +158,7 @@ const exerciseController = {
     // 08. Fonction randomRoutine, renvoie un tableau de 5 exercices aléatoires de ce type :
     getRandomRoutine: async (req, res) => {
         try {
-            const muscles = ["cervicaux", "deltoïdes", "lombaires", "hanches", "jambes"];
+            const muscles = ["Neck", "Shoulders", "Back", "Hips", "Legs"];
             // 07.a j'initialise un tableau vide qui va contenir les exercices aléatoires
             const selectedExercises = [];
 
@@ -167,7 +166,7 @@ const exerciseController = {
             for (let i = 0; i < muscles.length; i++) {
 
                 // 07.c je récupère les exercices par type :
-                const exercises = await Exercise.find({ type: muscles[i] });
+                const exercises = await Exercise.find({ muscle: {$regex: new RegExp(muscles[i], "i")}});
 
                 // 07.d je vérifie si des exos existent pour ce type : 
                 if (exercises.length > 0) {
@@ -186,6 +185,7 @@ const exerciseController = {
 
             // 07.h je renvoie le tableau de 5 exercices aléatoires :
             res.json(shuffledExercises);
+            console.log(shuffledExercises);
 
         } catch (error) {
             console.log(error);
