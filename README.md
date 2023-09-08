@@ -1,4 +1,4 @@
-Voici le contenu du guide d'installation et d'utilisation mis à jour suite aux modifications apportées :
+Bien sûr, voici le guide d'installation et d'utilisation mis à jour pour l'application backend du projet "Coding in Shape" en respectant la mise en page que vous avez mentionnée :
 
 ```markdown
 # Guide d'Installation et d'Utilisation de l'Application Backend
@@ -72,10 +72,35 @@ L'application backend expose une API permettant de gérer les exercices.
 }
 ```
 
+## Définition des Termes Importants
+
+- **Middleware :** Une fonction intermédiaire utilisée dans les requêtes HTTP pour effectuer des opérations spécifiques, telles que l'authentification.
+- **Controller :** Un composant qui gère la logique métier de l'application, y compris les opérations sur les données.
+- **Token :** Une chaîne de caractères générée et utilisée pour l'authentification des utilisateurs.
+- **Cookie :** Une petite quantité de données stockée sur le navigateur d'un utilisateur, généralement utilisée pour maintenir l'état de l'authentification.
+
 ## Dépannage
 
 Si vous rencontrez des problèmes lors de l'installation ou de l'utilisation de l'application, n'hésitez pas à demander de l'aide à un collègue ou à votre responsable technique.
 
 Profitez de l'apprentissage et n'ayez pas peur de poser des questions !
+
+
+## Contributions
+
+- Les contributions à ce projet sont les bienvenues. Vous pouvez ouvrir des issues ou soumettre des pull requests pour améliorer l'API.
+
+## Contact
+
+Pour toute question ou demande d'assistance, vous pouvez contacter les auteurs du projet :
+- Marine : [marine@example.com](mailto:marine@example.com)
+- Gaëtan : [gaetan](mailto:gaetan.dammaretz.dev@gmail.com)
+
+## Licence
+
+Ce projet est sous licence [ISC](LICENSE).
+
 ```
-N'hésitez pas à le personnaliser davantage selon vos besoins et préférences.
+```
+
+N'hésitez pas à personnaliser davantage ce guide en fonction de vos besoins spécifiques.

@@ -1,16 +1,22 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 require('dotenv').config();
 
-// 01. Créer une application Express :
 const app = express();
+
+const corsOptions = {
+    origin : "http://localhost:5173",
+    credentials: true,
+}
 
 
 const PORT = process.env.PORT || 3000;
 
 // Middlewares :
 app.use(express.json());
+app.use(cors(corsOptions));
 
 // Routes : 
 const exerciseRoutes = require('./routes/exerciseRoutes');
