@@ -102,5 +102,3 @@ Ce projet est sous licence [ISC](LICENSE).
 
 ```
 ```
-
-N'hésitez pas à personnaliser davantage ce guide en fonction de vos besoins spécifiques.
