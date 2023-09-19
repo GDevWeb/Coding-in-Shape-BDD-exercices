@@ -41,3 +41,5 @@ router.get('/muscle/:muscle', getExercisesByParam('muscle'), (req, res) => {
 });
 
 module.exports = router;
+
+// Fin du fichier
