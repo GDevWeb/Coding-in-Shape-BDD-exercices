@@ -26,8 +26,8 @@ const exerciseController = {
                 description,
                 image,
                 video,
-                type,
-                muscle,
+                type : type.toLowerCase(),
+                muscle : muscle.toLowerCase(),
             });
 
             // 01.c Sauvegarder l'exercice dans la base de données :

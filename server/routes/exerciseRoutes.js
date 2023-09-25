@@ -41,5 +41,3 @@ router.get('/muscle/:muscle', getExercisesByParam('muscle'), (req, res) => {
 });
 
 module.exports = router;
-
-// Path: server/routes/userRoutes.js hf
