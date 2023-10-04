@@ -8,7 +8,6 @@ const exerciseController = {
             name,
             description,
             image,
-            video,
             type,
             muscle,
         } = req.body;
@@ -25,7 +24,6 @@ const exerciseController = {
                 name: name.toLowerCase(),
                 description,
                 image,
-                video,
                 type : type.toLowerCase(),
                 muscle : muscle.toLowerCase(),
             });
@@ -73,7 +71,6 @@ const exerciseController = {
             name,
             description,
             image,
-            video,
             type,
             muscle,
         } = req.body;
@@ -85,7 +82,6 @@ const exerciseController = {
                     name: name.toLowerCase(),
                     description,
                     image,
-                    video,
                     type,
                     muscle,
                 },
