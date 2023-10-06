@@ -1,41 +1,41 @@
 const Exercise = require('../models/exerciseModel');
 
 const exerciseController = {
-
-    // 01. Ajouter un exercice :
     createExercise: async (req, res) => {
         const {
             name,
             description,
             image,
-            video,
             type,
             muscle,
         } = req.body;
 
         try {
-            // 01.a Vérifier si l'exercice existe déjà dans la base de données et contrôle par la casse :
+            // Validation des données d'entrée (ajoutez des validations personnalisées ici)
+            if (!name || !description || !type || !muscle) {
+                return res.status(400).json({ msg: "Veuillez fournir toutes les informations requises" });
+            }
+
+            // Vérifier si l'exercice existe déjà (insensible à la casse)
             const exercise = await Exercise.findOne({ name: name.toLowerCase() });
             if (exercise) {
                 return res.status(400).json({ msg: "Cet exercice existe déjà" });
             }
 
-            // 01.b Si l'exercice n'existe pas, on le crée :
             const newExercise = new Exercise({
                 name: name.toLowerCase(),
                 description,
                 image,
-                video,
                 type,
                 muscle,
             });
 
-            // 01.c Sauvegarder l'exercice dans la base de données :
+            // Sauvegarder l'exercice dans la base de données
             await newExercise.save();
             res.status(201).json({ msg: "Nouvel exercice créé" });
         } catch (error) {
-            console.log(error);
-            res.status(500).json({ msg: error.message });
+            console.error(error);
+            res.status(500).json({ msg: "Erreur serveur" });
         }
     },
 
