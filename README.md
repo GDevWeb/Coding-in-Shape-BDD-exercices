@@ -71,10 +71,3 @@ L'application backend expose une API permettant de gérer les exercices.
     "muscle": "Chest"
 }
 ```
-
-## Dépannage
-
-Si vous rencontrez des problèmes lors de l'installation ou de l'utilisation de l'application, n'hésitez pas à demander de l'aide à un collègue ou à votre responsable technique.
-
-Profitez de l'apprentissage et n'ayez pas peur de poser des questions !
-```
